@@ -3,33 +3,37 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import TemplateView, ListView, DetailView
 from apps.Comment.models import Comment
 
+# ----- Comentario(inicio) ------
 
 class HomeView(TemplateView):
-    template_name = 'comentario.html'
+    template_name = 'comments/comentario.html'
+
+
+# ----- Comentario ------
 
 class CrearComentario(CreateView):
     model = Comment
     fields = ['usuario', 'post', 'texto', 'fecha']
-    template_name = 'agregar_comentario.html'
+    template_name = 'comments/agregar_comentario.html'
     success_url = reverse_lazy('comentario.html')
 
 
 class ActualizarComentario(UpdateView):
     model = Comment
     fields = ['usuario', 'post', 'texto', 'fecha']
-    template_name = 'actualizar_comentario.html'
+    template_name = 'comments/actualizar_comentario.html'
     success_url = reverse_lazy('comentario.html')
 
 
 class EliminarComentario(DeleteView):
     model = Comment
-    template_name = 'confirma_eliminar_comentario.html'
+    template_name = 'comments/confirma_eliminar_comentario.html'
     success_url = reverse_lazy('comentario.html')
 
 
 class ListarComentario(ListView):
     model = Comment
-    template_name = 'listar_comentario.html'
+    template_name = 'comments/listar_comentario.html'
     context_object_name = 'comentario'
 
 

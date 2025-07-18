@@ -1,0 +1,28 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block styles %}{%endblock%}
+    {% block title %}{%endblock%}
+
+</head>
+<body class="body">
+    <div>
+        {% block header %}{%endblock%}
+    </div>
+    
+    <div>
+        {% block contenido %}{%endblock%}
+    </div>
+    
+    <div>
+        {% block footer %}{%endblock%}
+    </div>
+    
+    {% block scripts%}{%endblock%}
+
+</body>
+</html>

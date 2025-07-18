@@ -1,3 +1,9 @@
-# Created by venv; see https://docs.python.org/3/library/venv.html
-.venv
+__pycache__/
+*.pd[cod]
+.log
+media/
 .env
+.vscode/
+venv/
+env/
+.venv/

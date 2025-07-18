@@ -1,5 +1,6 @@
 from django.db import models
 
+
 class Genero(models.Model):
     genero = models.CharField(max_length=150, null=False,blank=False)
 
@@ -15,7 +16,7 @@ class Plataforma(models.Model):
 class Post(models.Model):
     titulo = models.CharField(max_length=50, null=False,blank=False)
     subtitulo = models.CharField(max_length=150, null=False,blank=True)
-    fecha = models.DateTimeField(auto_now=True)
+    fecha = models.DateTimeField(auto_created=True)
     descripcion = models.TextField(null=False)
     genero = models.ForeignKey(Genero, on_delete=models.SET_NULL, null=True, default='S/N')
     plataforma = models.ForeignKey(Plataforma, on_delete=models.SET_NULL, null=True, default='S/N')
