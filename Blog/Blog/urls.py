@@ -16,11 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+
+# Importaciones para servir archivos de medios en desarrollo
+
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from .views import Index
+
+#Configuraciones para servir archivos de medios en desarrollo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
