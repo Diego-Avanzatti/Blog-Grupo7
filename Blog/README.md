@@ -38,3 +38,13 @@ Carpeta media/ (imagenes)
 * Esta carpeta si esta incluidad en el repositorio, por lo que se puede clonar y ver imagenes de ejemplo
 * Las rutas estan configuradas en settings.py y urls.py
 
+# Pasos para importar la base de datos:
+
+1. Abrir MySQL Workbench
+2. Ir a Management > Data Import/Restore
+3. Elegir opcion: Import from Self-Contained File
+4. Seleccionar el archivo: "base_datos/db_export.sql
+5. Marcar opcion: Dump Structure and Data
+6. Ejecutar la importacion.
+
+*Importante: si mas adelante se agregan nuevos posts, van a tener que volver a importar esta base actualizada. Cada vez que abran el proyecto, revisen en el github si el archivo .sql fue actualizado. 
