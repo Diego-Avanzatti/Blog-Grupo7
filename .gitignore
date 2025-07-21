@@ -1,9 +1,10 @@
 __pycache__/
 *.pd[cod]
 .log
-media/
+# media/
 .env
 .vscode/
 venv/
 env/
 .venv/
+entorno/
