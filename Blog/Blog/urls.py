@@ -16,26 +16,28 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
-# Importaciones para servir archivos de medios en desarrollo
-
 from django.conf import settings
 from django.conf.urls.static import static
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
+# Importa las vistas necesarias
 from .views import index
-path('', index, name='index')
-
-#Configuraciones para servir archivos de medios en desarrollo
 
 urlpatterns = [
+    # Rutas principales del proyecto
     path('admin/', admin.site.urls),
-    path('',index, name='index'),
+    path('', index, name='index'),
+    
+    # Rutas de las aplicaciones
     path('post/', include('apps.Post.urls')),
     path('comentario/', include('apps.Comment.urls')),
     path('perfil/', include('apps.Perfiles.urls')),
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
 
-
-urlpatterns += staticfiles_urlpatterns()
-urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
+# Configuración para servir archivos estáticos y de medios en desarrollo
+# Asegúrate de que esto solo se ejecute cuando DEBUG sea True
+if settings.DEBUG:
+    from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+    
+    urlpatterns += staticfiles_urlpatterns()
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)

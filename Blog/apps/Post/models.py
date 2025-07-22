@@ -21,7 +21,7 @@ class Post(models.Model):
     genero = models.ForeignKey(Genero, on_delete=models.SET_NULL, null=True, default='S/N')
     plataforma = models.ForeignKey(Plataforma, on_delete=models.SET_NULL, null=True, default='S/N')
     activo = models.BooleanField(default=True)
-    imagen_post = models.ImageField(null=True,blank=True, upload_to='posts/')
+    imagen_post = models.ImageField(null=True,blank=True, upload_to='Post/images/')
 
     class Meta:
         ordering = ('-fecha',)
