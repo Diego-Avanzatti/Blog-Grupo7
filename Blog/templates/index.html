@@ -1,103 +1,73 @@
-<!doctype html>
-<html lang="es-ar">
-    <head class="encabezado" id="encabezado">
-    
-    {% load static %}
-        <title>Proyecto Final Grupo 7</title>
-        <link rel="stylesheet" href= "{% static 'css/style.css' %}">
-        <meta charset="utf-8" />
-        <meta
-            name="viewport"
-            content="width=device-width, initial-scale=1, shrink-to-fit=no"
-            
-        />
+{% extends "base.html" %}
+{% load static %}
 
-        <!-- Bootstrap CSS v5.2.1 -->
-        <link
-            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-            rel="stylesheet"
-            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-            crossorigin="anonymous"
-        />
-    </head>
+{% block styles %}
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href= {% static 'css/style.css'%}>
+{% endblock %}
 
-    <body>
-        <header class="encabezado" id="encabezado">
-           <nav>
-             <a class="navegacion__enlace" href="#inicio">
-               <h2 class="navegacion__titulo">Principal</h2>
-             </a>
-             <ul class="enlaces">
-               <li class="enlaces__item">
-                 <a class="enlaces__enlace" href="#inicio">Inicio</a>
-               </li>
-               <li class="enlaces__item">
-                 <a class="enlaces__enlace" href="#nombre-de-archivos">iniciar sesion</a>
-               </li>
-               <li class="enlaces__item">
-                 <a class="enlaces__enlace" href="#nombre-de-archivos">crear usuario</a>
-               </li>
-             </ul>
-           </nav>
-  </header>
-        <main>
-            <h1>Pagina de inicio</h1>
-            <h1>Posts recientes</h1>
+{% block title %}
+<title>Proyecto Final Grupo-7</title>
+{%endblock%}
 
-            {% if posts %}
-                <ul>
-                  {% for post in posts %} <li>
-        <h2>{{post.titulo}}</h2> 
-       
-        <p>{{ post.descripcion}}</p>
-        <p><strong>Genero:</strong> {{post.genero}}</p>
 
-        <p><em>Publicado el {{post.fecha}}</em></p> 
-        <img 
-        src="{{post.imagen_post.url}}"
-                    alt="Imagen del post"
-                    style= "max-width: 300px;">          
-                  </li>
-                  
-                  {% endfor %}
-                </ul>
-                {% else %}
-                <p>No hay publicaciones disponibles</p>
-                {% endif %}
-            <section class="cuerpo" id="cuerpo">
-                <h1>Estas son cinco de las plataformas de video juegos mas importantes del mercado</h1>
-                <h2>Play Station</h2>
-                <h2>Nintendo</h2>
-                <h2>Xbox</h2>
-                <h2>Pc</h2>
-                <h2>android</h2>
+ {% block header %}
+ {% include "partes/header.html" %}
+ {%endblock%}
+   
+{% block contenido %}
+  <main>
+    <h1>Pagina de inicio</h1>
+    <h1>Posts recientes</h1>
 
-            </section>
-        </main>
-        <footer>
-            <main>
-            <h1>contacto</h1>
+    {% if posts %}
+      <ul>
+        {% for post in posts %}
+          <li>
+          <h2>{{post.titulo}}</h2>
+          <p>{{ post.descripcion}}</p>
+          <p><strong>Genero:</strong> {{post.genero}}</p>
+          <p><em>Publicado el {{post.fecha}}</em></p>
+          <img src="{{post.imagen_post.url}}" alt="Imagen del post" style="max-width: 300px"/>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>No hay publicaciones disponibles</p>
+    {% endif %}
 
-            <section class="pie" id="pie">
-                <h1>contactate a traves de los siguientes enlaces</h1>
-                <h2>correo@gmail.com</h2>
-                <h2>mensaje como usuario</h2>
-                <h3>creado por grupo 7, comision 5, Informatorio</h3>
+    <section class="cuerpo" id="cuerpo">
+      <h1>Estas son cinco de las plataformas de video juegos mas importantes del mercado</h1>
+      <h2>Play Station</h2>
+      <h2>Nintendo</h2>
+      <h2>Xbox</h2>
+      <h2>Pc</h2>
+      <h2>android</h2>
+    </section>
+  </main>
+{%endblock%}
 
-            </section>
-        </main>
-        </footer>
-        <!-- Bootstrap JavaScript Libraries -->
-        <script
-            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-            crossorigin="anonymous"
-        ></script>
+{% block footer %}
+{% include 'partes/footer.html'%}
+{%endblock%}
 
-        <script
-            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
-            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
-            crossorigin="anonymous"
-        ></script>
-    </body>
-</html>
+{% block scripts%}
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+{%endblock%}
