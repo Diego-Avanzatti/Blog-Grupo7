@@ -34,7 +34,7 @@
           <p>{{ post.descripcion}}</p>
           <p><strong>Genero:</strong> {{post.genero}}</p>
           <p><em>Publicado el {{post.fecha}}</em></p>
-          <img src="{{post.imagen_post.url}}" alt="Imagen del post" style="max-width: 300px"/>
+          <img src="{{ post.imagen_post.url }}" alt="Imagen del post" style="max-width: 300px; height: auto;"/>
           </li>
         {% endfor %}
       </ul>
