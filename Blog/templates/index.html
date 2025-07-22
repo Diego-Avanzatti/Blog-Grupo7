@@ -42,7 +42,28 @@
   </header>
         <main>
             <h1>Pagina de inicio</h1>
+            <h1>Posts recientes</h1>
 
+            {% if posts %}
+                <ul>
+                  {% for post in posts %} <li>
+        <h2>{{post.titulo}}</h2> 
+       
+        <p>{{ post.descripcion}}</p>
+        <p><strong>Genero:</strong> {{post.genero}}</p>
+
+        <p><em>Publicado el {{post.fecha}}</em></p> 
+        <img 
+        src="{{post.imagen_post.url}}"
+                    alt="Imagen del post"
+                    style= "max-width: 300px;">          
+                  </li>
+                  
+                  {% endfor %}
+                </ul>
+                {% else %}
+                <p>No hay publicaciones disponibles</p>
+                {% endif %}
             <section class="cuerpo" id="cuerpo">
                 <h1>Estas son cinco de las plataformas de video juegos mas importantes del mercado</h1>
                 <h2>Play Station</h2>
