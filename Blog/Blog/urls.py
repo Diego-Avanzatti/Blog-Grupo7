@@ -23,13 +23,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
-from .views import Index
+from .views import index
+path('', index, name='index')
 
 #Configuraciones para servir archivos de medios en desarrollo
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',Index.as_view(), name='index'),
+    path('',index, name='index'),
     path('post/', include('apps.Post.urls')),
     path('comentario/', include('apps.Comment.urls')),
     path('perfil/', include('apps.Perfiles.urls')),

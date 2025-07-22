@@ -1,4 +1,8 @@
-from django.views.generic import TemplateView
+from django.shortcuts import render
+from apps.Post.models import Post 
 
-class Index(TemplateView):
-    template_name = 'index.html'
+def index(request):
+    posts = Post.objects.all()
+    return render(request, 'index.html', {'posts': posts})
+
+    
