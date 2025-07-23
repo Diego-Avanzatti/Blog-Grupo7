@@ -1,13 +1,7 @@
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import TemplateView, ListView, DetailView
+from django.views.generic import  ListView, DetailView
 from apps.Comment.models import Comment
-
-# ----- Comentario(inicio) ------
-
-class HomeView(TemplateView):
-    template_name = 'comments/comentario.html'
-
 
 # ----- Comentario ------
 
@@ -33,7 +27,7 @@ class EliminarComentario(DeleteView):
 
 class ListarComentario(ListView):
     model = Comment
-    template_name = 'comments/listar_comentario.html'
+    template_name = 'comments/comentario.html'
     context_object_name = 'comentario'
 
 

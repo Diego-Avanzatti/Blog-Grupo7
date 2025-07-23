@@ -30,7 +30,7 @@ urlpatterns = [
     # Rutas de las aplicaciones
     path('post/', include('apps.Post.urls')),
     path('comentario/', include('apps.Comment.urls')),
-    path('perfil/', include('apps.Perfiles.urls')),
+    path('perfil', include('apps.Perfiles.urls')),
 ]
 
 # Configuración para servir archivos estáticos y de medios en desarrollo

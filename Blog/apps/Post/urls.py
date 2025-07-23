@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import HomeView, CrearPost, ActualizarPost, EliminarPost, ListarPost
+from .views import CrearPost, ActualizarPost, EliminarPost, ListarPost , DetallarPost
 from .views import AgregarGenero, ActualizarGenero, EliminarGenero
 from .views import AgregarPlataforma, ActualizarPlataforma, EliminarPlataforma
 
@@ -15,9 +15,9 @@ urlpatterns = [
     path("actualizar_plataforma/", ActualizarPlataforma.as_view(), name="actualizar_plataforma"),
     path("eliminar_plataforma/", EliminarPlataforma.as_view(), name="eliminar_plataforma"),
 
-    path('', HomeView.as_view(),name='post'),
+    path('', ListarPost.as_view(),name='posts'),
     path('agregar/', CrearPost.as_view(),name='agregar_post'),
     path('actualizar/', ActualizarPost.as_view(),name='actualizar_post'),
-    path('listar/', ListarPost.as_view(),name='listar_post'),
     path('eliminar/<int:pk>',EliminarPost.as_view(),name='eliminar_post'),
+    path('<int:id>/',DetallarPost.as_view(),name='post_individual'),
 ]
