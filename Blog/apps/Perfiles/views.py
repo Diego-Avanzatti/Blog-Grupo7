@@ -8,7 +8,7 @@ class UsuarioView(TemplateView):
     template_name = 'perfiles/usuario.html'
 
 class AdminView(TemplateView):
-    template_name = 'perfiles/usuario.html'
+    template_name = 'perfiles/admin.html'
 
 
 # ----------registrar usuarios----------

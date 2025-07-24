@@ -7,14 +7,19 @@
     </a>
     <ul class="enlaces">
       <li class="enlaces__item">
-        <a class="enlaces__enlace" href="#inicio">Inicio</a>
+        <a class="enlaces__enlace" href="{% url 'index' %}">Inicio</a>
       </li>
       <li class="enlaces__item">
-        <a class="enlaces__enlace" href="#nombre-de-archivos">iniciar sesion</a>
+        <a class="enlaces__enlace" href="{% url "apps.Perfiles:login" %}">iniciar sesion</a>
       </li>
       <li class="enlaces__item">
-        <a class="enlaces__enlace" href="#nombre-de-archivos">crear usuario</a>
+        <a class="enlaces__enlace" href="{% url "apps.Perfiles:registrarse" %}">crear usuario</a>
       </li>
+      <li class="enlaces__item">
+        <a class="enlaces__enlace" href="{% url 'post:posts' %}">Posts</a>
+      </li>
+
+
     </ul>
   </nav>
 </header>

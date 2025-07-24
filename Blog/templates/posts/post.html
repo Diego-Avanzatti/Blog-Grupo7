@@ -14,13 +14,6 @@
 
 {% block contenido %}
 <div class="contenido">
-    <style>
-        .contenido{
-            width: auto;
-            height: auto;
-            background-color: #dbdbdfff;
-        }
-    </style>
     <ul>
         {% for post in posts %}
           <li>
@@ -29,6 +22,7 @@
           <p><strong>Genero:</strong> {{post.genero}}</p>
           <p><em>Publicado el {{post.fecha}}</em></p>
           <img src="{{ post.imagen_post.url }}" alt="Imagen del post" style="max-width: 300px; height: auto;"/>
+          <a href="{{post.id}}"><button>Abrir Post</button></a>
           </li>
           {% empty %}
           <p>No hay registro</p>

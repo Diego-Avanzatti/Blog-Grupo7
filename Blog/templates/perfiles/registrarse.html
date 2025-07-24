@@ -1,23 +1,21 @@
-{% extends "base.html" %}
-{% load static %}
-
-
-{% block titulo %}
-<title>Registrarse</title>
-{% endblock %}
-
-
+{% extends "base.html" %} 
+{% load static %} 
 
 
 {% block contenido %}
-<div class="contenido">
-    <style>
-        .contenido{
-            width: auto;
-            height: 500px;
-            background-color: #ffbb00ff;
-        }
-    </style>
-</div>
-{%endblock%}
+<h2>Crear cuenta</h2>
 
+<form method="post">
+  {% csrf_token %} {% if form.non_field_errors %}
+  <div style="color: red">{{ form.non_field_errors }}</div>
+  {% endif %} {% for field in form %}
+  <div>
+    {{ field.label_tag }} {{ field }} {% if field.errors %}
+    <div style="color: red">{{ field.errors }}</div>
+    {% endif %}
+  </div>
+  {% endfor %}
+
+  <button type="submit">Registrarse</button>
+</form>
+{% endblock %}

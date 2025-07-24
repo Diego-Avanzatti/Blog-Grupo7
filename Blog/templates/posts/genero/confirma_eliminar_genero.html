@@ -13,16 +13,17 @@
 
 
 {% block contenido %}
-<div class="contenido">
-    <style>
-        .contenido{
-            width: auto;
-            height: 500px;
-            background-color: #186800ff;
-        }
-    </style>
+<div class="container">
+    <h2>Confirmar eliminación</h2>
+    
+    <p>¿Estás seguro de que querés eliminar el post {{ object.genero }}?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sí, eliminar</button>
+    </form>
 </div>
-{%endblock%}
+{% endblock %}
 
 {% block footer %}
     {% include "partes/footer.html" %}
