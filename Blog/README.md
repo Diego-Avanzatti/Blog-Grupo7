@@ -1,4 +1,4 @@
-# Blog de Videojuegos - Grupo 7
+# Blog de Videojuegos - EQUIPO 7
 
 Este proyecto es un Blog desarrollado con Django donde se publican reseñas de videojuegos. 
 
@@ -48,3 +48,13 @@ Carpeta media/ (imagenes)
 6. Ejecutar la importacion.
 
 *Importante: si mas adelante se agregan nuevos posts, van a tener que volver a importar esta base actualizada. Cada vez que abran el proyecto, revisen en el github si el archivo .sql fue actualizado. 
+
+Integrantes:
+
+Antúnez, Pablo
+Avanzatti, Diego Gabriel
+Criscueli, Eduardo Ezequiel
+Fernández, Ezequiel Jesús
+Salas, Gabriel Leonardo
+Sánchez, Vanina
+Viton, Eliana
