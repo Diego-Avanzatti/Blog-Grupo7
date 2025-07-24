@@ -51,10 +51,10 @@ Carpeta media/ (imagenes)
 
 Integrantes:
 
-Antúnez, Pablo
-Avanzatti, Diego Gabriel
-Criscueli, Eduardo Ezequiel
-Fernández, Ezequiel Jesús
-Salas, Gabriel Leonardo
-Sánchez, Vanina
-Viton, Eliana
+- Antúnez, Pablo
+- Avanzatti, Diego Gabriel
+- Criscueli, Eduardo Ezequiel
+- Fernández, Ezequiel Jesús
+- Salas, Gabriel Leonardo
+- Sánchez, Vanina
+- Viton, Eliana
