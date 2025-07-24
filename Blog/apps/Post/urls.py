@@ -17,7 +17,7 @@ urlpatterns = [
 
     path('', ListarPost.as_view(),name='posts'),
     path('agregar/', CrearPost.as_view(),name='agregar_post'),
-    path('actualizar/', ActualizarPost.as_view(),name='actualizar_post'),
+    path('actualizar/<int:pk>/', ActualizarPost.as_view(), name='actualizar_post'),
     path('eliminar/<int:pk>',EliminarPost.as_view(),name='eliminar_post'),
     path('<int:id>/',DetallarPost.as_view(),name='post_individual'),
 ]

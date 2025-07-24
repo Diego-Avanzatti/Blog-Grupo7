@@ -1,29 +1,27 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
 
-
 {% block titulo %}
-<title>Post</title>
+<title>Agregar Post</title>
 {% endblock %}
 
-
 {% block header %}
-    {% include "partes/header.html" %}
-{%endblock%}
-
+{% include "partes/header.html" %}
+{% endblock %}
 
 {% block contenido %}
-<div class="contenido">
-    <style>
-        .contenido{
-            width: auto;
-            height: 500px;
-            background-color: #06005fff;
-        }
-    </style>
+<div class="container">
+    <h2>Agregar Nuevo Post</h2>
+    
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Publicar</button>
+    </form>
 </div>
-{%endblock%}
+{% endblock %}
 
 {% block footer %}
-    {% include "partes/footer.html" %}
-{%endblock%}
+{% include "partes/footer.html" %}
+{% endblock %}

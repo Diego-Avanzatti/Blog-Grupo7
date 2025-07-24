@@ -1,29 +1,27 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 {% load static %}
 
-
 {% block titulo %}
-<title>Post</title>
+<title>Eliminar Post</title>
 {% endblock %}
 
-
 {% block header %}
-    {% include "partes/header.html" %}
-{%endblock%}
-
+{% include "partes/header.html" %}
+{% endblock %}
 
 {% block contenido %}
-<div class="contenido">
-    <style>
-        .contenido{
-            width: auto;
-            height: 500px;
-            background-color: #7c68ebce;
-        }
-    </style>
+<div class="container">
+    <h2>Confirmar eliminación</h2>
+    
+    <p>¿Estás seguro de que querés eliminar el post {{ object.titulo }}?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Sí, eliminar</button>
+    </form>
 </div>
-{%endblock%}
+{% endblock %}
 
 {% block footer %}
-    {% include "partes/footer.html" %}
-{%endblock%}
+{% include "partes/footer.html" %}
+{% endblock %}

@@ -14,13 +14,6 @@
 
 {% block contenido %}
 <div class="contenido">
-    <style>
-        .contenido{
-            width: auto;
-            height: 500px;
-            background-color: #afc4ebff;
-        }
-    </style>
     <ul>
           <li>
           <h2>{{post.titulo}}</h2>
@@ -31,6 +24,23 @@
           </li>
     </ul>
 </div>
+
+<div class="comentarios">
+  <h3>Comentarios</h3>
+
+
+    <ul>
+        {% for comentario in comentarios %}
+            <li>
+                <strong>{{ comentario.usuario }}</strong> 
+                <small>{{ comentario.fecha}}</small>
+                <p>{{ comentario.texto }}</p>
+            </li>
+      {% endfor %}
+    </ul>
+ 
+</div>
+
 {%endblock%}
 
 {% block footer %}

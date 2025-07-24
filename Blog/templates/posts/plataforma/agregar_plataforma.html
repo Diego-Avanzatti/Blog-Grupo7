@@ -13,16 +13,17 @@
 
 
 {% block contenido %}
-<div class="contenido">
-    <style>
-        .contenido{
-            width: auto;
-            height: 500px;
-            background-color: #804646ff;
-        }
-    </style>
+<div class="container">
+    <h2>Agregar Nueva plataforma</h2>
+    
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <button type="submit">Publicar</button>
+    </form>
 </div>
-{%endblock%}
+{% endblock %}
 
 {% block footer %}
     {% include "partes/footer.html" %}

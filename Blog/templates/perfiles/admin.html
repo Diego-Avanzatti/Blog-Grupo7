@@ -1,29 +1,64 @@
-{% extends "base.html" %}
-{% load static %}
-
+{% extends "base.html" %} 
+{% load static %} 
 
 {% block titulo %}
 <title>Admin</title>
-{% endblock %}
+{% endblock %} 
 
-
-{% block header %}
-    {% include "partes/header.html" %}
-{%endblock%}
-
+{% block header %} 
+{% include "partes/header.html" %}
+{%endblock%} 
 
 {% block contenido %}
-<div class="contenido">
-    <style>
-        .contenido{
-            width: auto;
-            height: 500px;
-            background-color: #ffbb00ff;
-        }
-    </style>
-</div>
-{%endblock%}
 
-{% block footer %}
-    {% include "partes/footer.html" %}
+    <h2>Panel del Administrador</h2>
+
+    <a href="{% url 'post:agregar_genero' %}">Nuevo Genero</a>
+    <a href="{% url 'post:agregar_plataforma' %}">Nueva Plataforma</a>
+    <a href="{% url 'post:agregar_post' %}">Nuevo Post</a>
+
+    <hr />
+
+    <h3>Lista de todos los Generos</h3>
+    <ul>
+        {% for genero in generos %}
+            <li>
+                <h4>{{genero.id}} {{genero.genero}}</h4>
+                <a href="{% url 'post:actualizar_genero' genero.id %}">Editar</a>
+                <a href="{% url 'post:eliminar_genero' genero.id %}">Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <hr />
+
+    <h3>Lista de todos las plataformas</h3>
+    <ul>
+        {% for plataforma in plataformas %}
+            <li>
+                <h4>{{plataforma.id}} {{plataforma.plataforma}}</h4>
+                <a href="{% url 'post:actualizar_plataforma' plataforma.id %}">Editar</a>
+                <a href="{% url 'post:eliminar_plataforma' plataforma.id %}">Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+    <hr />
+
+  
+
+    <h3>Lista de todos los Posts</h3>
+    <ul>
+        {% for post in posts %}
+            <li>
+                <h4>{{post.id}} {{post.titulo}} - {{post.fecha}}</h4>
+                <a href="{% url 'post:post_individual' post.id %}">Ver</a>
+                <a href="{% url 'post:actualizar_post' post.id %}">Editar</a>
+                <a href="{% url 'post:eliminar_post' post.id %}">Eliminar</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+ 
+
+{% block footer %} 
+{% include "partes/footer.html" %}
 {%endblock%}
